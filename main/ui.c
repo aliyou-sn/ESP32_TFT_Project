@@ -106,13 +106,13 @@ if ( event_code == LV_EVENT_SCREEN_LOADED) {
 void ui_event_Screen2( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
     
-//if ( event_code == LV_EVENT_CLICKED) {
-//      _ui_screen_change( &ui_Screen3, LV_SCR_LOAD_ANIM_MOVE_LEFT, 500, 0, &ui_Screen3_screen_init);
-//}
-
-if ( event_code == LV_EVENT_SCREEN_LOADED) {
-      _ui_screen_change( &ui_Screen3, LV_SCR_LOAD_ANIM_MOVE_LEFT, 500, 3000, &ui_Screen3_screen_init);
+if ( event_code == LV_EVENT_CLICKED) {
+     _ui_screen_change( &ui_Screen3, LV_SCR_LOAD_ANIM_MOVE_LEFT, 500, 0, &ui_Screen3_screen_init);
 }
+
+// if ( event_code == LV_EVENT_SCREEN_LOADED) {
+//       _ui_screen_change( &ui_Screen3, LV_SCR_LOAD_ANIM_MOVE_LEFT, 500, 3000, &ui_Screen3_screen_init);
+// }
 
 }
 void ui_event_GrillSwitch( lv_event_t * e) {
@@ -148,13 +148,13 @@ if ( event_code == LV_EVENT_CLICKED) {
 }
 void ui_event_Screen3( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
-//if ( event_code == LV_EVENT_CLICKED) {
-//      _ui_screen_change( &ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 500, 0, &ui_Screen2_screen_init);
-//}
-
-if ( event_code == LV_EVENT_SCREEN_LOADED) {
-      _ui_screen_change( &ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 500, 5000, &ui_Screen2_screen_init);
+if ( event_code == LV_EVENT_CLICKED) {
+     _ui_screen_change( &ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 500, 0, &ui_Screen2_screen_init);
 }
+
+// if ( event_code == LV_EVENT_SCREEN_LOADED) {
+//       _ui_screen_change( &ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 500, 5000, &ui_Screen2_screen_init);
+// }
 
 }
 void ui_event_ImgButton3( lv_event_t * e) {
