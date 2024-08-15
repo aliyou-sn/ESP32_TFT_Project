@@ -1,7 +1,21 @@
 #include <lvgl.h>
 #include <TFT_eSPI.h>
 #include "ui.h"
-#include <time.h>     
+#include <time.h>  
+#include <max6675.h>
+
+
+int thermoDO = 12;
+int thermoCS = 5;
+int thermoCLK = 6;
+
+//Relay pins
+
+int grillrelay = 12;
+int warmerrelay = 13;
+
+
+MAX6675 thermocouple(thermoCLK, thermoCS, thermoDO);
 
 // Actual Temperature for Grill and warmer
 //In celcius
@@ -105,8 +119,8 @@ void GetTemp(void *parameter){
   for(;;)
   {
 
-  GrillTemperatureC = random(70,100);  //random values for testing
-  WarmerTemperatureC = random(70,100);  //random values for testing
+  GrillTemperatureC = thermocouple.readCelsius();  //random values for testing
+  WarmerTemperatureC = thermocouple.readFahrenheit();  //random values for testing
   char buf1[_UI_TEMPORARY_STRING_BUFFER_SIZE];
   char buf2[_UI_TEMPORARY_STRING_BUFFER_SIZE];
   if(Celcius)
@@ -138,10 +152,15 @@ void setup()
 {
     Serial.begin( 115200 ); /* prepare for possible serial debug */
 
+    pinMode(grillrelay, OUTPUT);
+    pinMode(warmerrelay, OUTPUT);
+
     String LVGL_Arduino = "Hello! ";
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
 
     lv_init();
+//    lvgl_refresh_timestamp = millis();
+
 
 #if LV_USE_LOG != 0
     lv_log_register_print_cb( my_print ); /* register print function for debugging */

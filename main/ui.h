@@ -117,6 +117,10 @@ extern bool Fahrenheit;
 extern bool Celcius;
 
 
+extern int grillrelay;
+extern int warmerrelay;
+
+
 
 
 void ui_init(void);

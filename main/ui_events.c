@@ -14,22 +14,21 @@ bool Celcius = true;
 
 void Grill_On(lv_event_t * e)
 {
-	// Code to turn On grill heating
+	digitalWrite(grillrelay, HIGH);
 }
 
 void Grill_Off(lv_event_t * e)
 {
-	// Code to turn Off grill heating
+    digitalWrite(grillrelay, LOW);
 }
 
 void Warmer_On(lv_event_t * e)
 {
-	// Code to turn On warmer heating
-}
+    digitalWrite(warmerrelay, HIGH);}
 
 void Warmer_Off(lv_event_t * e)
 {
-  // Code to turn Off warmer heating
+    digitalWrite(warmerrelay, LOW);
 }
 
 void DecrementGTemperature(lv_event_t * e)
